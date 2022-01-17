@@ -191,6 +191,9 @@ public class BitmapFetcher extends HandlerThread {
       BitmapFactory.Options options = new BitmapFactory.Options();
       options.inJustDecodeBounds = true;
       BitmapFactory.decodeStream(file, null, options);
+
+      file.reset();  // bri add for read bug. 2022/01/17	
+
       options.inJustDecodeBounds = false;
       if (options.outWidth < 0) {
         // TODO(mike): Consider doing something different for this error.

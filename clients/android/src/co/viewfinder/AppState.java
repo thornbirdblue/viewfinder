@@ -31,11 +31,12 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
  * AppState holds all application global state.
  */
 public class AppState extends Application {
+/* bri
   static {
     // TODO(marc): for gyp to generate a nicer name for this.
     System.loadLibrary("_clients_android_jni_viewfinder_gyp");
   }
-
+*/
   private static final String TAG = "viewfinder.AppState";
   private static final String PREFS_NAME = "ViewfinderPreferences";
 
@@ -119,6 +120,7 @@ public class AppState extends Application {
     }
 
     Log.i(TAG, "Preparing to load native app state");
+    /* bri
     mNativeState = LoadNative(getFilesDir().toString(), mUnlinkAtStartup, getServerPort());
 
     mDB = new DB(GetDBHandle(mNativeState));
@@ -132,8 +134,8 @@ public class AppState extends Application {
     mPhotoStorage = new PhotoStorage(GetPhotoStorage(mNativeState));
     mPhotoTable = new PhotoTable(GetPhotoTable(mNativeState));
     mViewpointTable = new ViewpointTable(GetViewpointTable(mNativeState));
-
-    RunMaintenance(mNativeState, mUnlinkAtStartup);
+*/
+// bri    RunMaintenance(mNativeState, mUnlinkAtStartup);
 
     Utils.dumpBuildInfo();
 
@@ -163,7 +165,7 @@ public class AppState extends Application {
     super.onCreate();
 
     // Tell the native app state we are ready.
-    AppDidBecomeActive(mNativeState);
+    // bri AppDidBecomeActive(mNativeState);
   }
 
   private void setupServerHost() {
@@ -238,12 +240,12 @@ public class AppState extends Application {
       while (eventType != XmlResourceParser.END_DOCUMENT) {
         // Ignore tags: START_DOCUMENT, END_TAG, TEXT, we encode the data we care about as attributes.
         if (eventType == XmlResourceParser.START_TAG) {
-          String name = xpp.getName();
-          if (name.equals("app_version")) {
+          String name = xpp.getAttributeValue(null,"name");
+          if (name.equals("app.version")) {
             appVersion = xpp.getAttributeValue(null, "value");
-          } else if (name.equals("build_target")) {
+          } else if (name.equals("build.target")) {
             buildTarget = xpp.getAttributeValue(null, "value");
-          } else if (name.equals("backend_production")) {
+          } else if (name.equals("backend.production")) {
             useProduction = xpp.getAttributeValue(null, "value");
           } else if (name.equals("unlink_at_startup")) {
             unlinkAtStartup = xpp.getAttributeValue(null, "value");
@@ -494,7 +496,7 @@ public class AppState extends Application {
   private static native long GetPhotoTable(long state);
   private static native long GetViewpointTable(long state);
   private static native byte[] GetUserCookie(long state);
-  private static native long GetUserID(long state);
+  private static  long GetUserID(long state){return 1;};
   private static native byte[] GetXsrfCookie(long state);
   private static native void SetAuthCookies(long state, byte[] user_cookie, byte[] xsrf_cookie);
 }

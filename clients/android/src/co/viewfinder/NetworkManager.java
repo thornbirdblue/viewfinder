@@ -233,6 +233,7 @@ public class NetworkManager {
   }
 
   private static void initHttpClient(boolean isProduction, byte[] userCookie, byte[] xsrfCookie) {
+/* bri
     HttpParams params = new BasicHttpParams();
 
     SchemeRegistry registry = new SchemeRegistry();
@@ -260,6 +261,7 @@ public class NetworkManager {
     // New cookies come from the AppState, no need to set them again.
     store.checkAndClearNewCookies();
     mHttpClient.setCookieStore(store);
+*/
   }
 
   private static SSLSocketFactory newSslSocketFactory() {
