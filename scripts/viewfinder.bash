@@ -17,7 +17,7 @@ ROOT=$(cd $ROOT; pwd)
 export VF_HOME=$ROOT
 
 # Python environment.
-export PATH=$VF_HOME/third_party/gyp:~/envs/vf-dev/bin:$PATH:~/android-sdk/tools:~/android-sdk/platform-tools:~/android-ndk
+export PATH=$VF_HOME/third_party/gyp:~/envs/vf-dev/bin:$PATH:~/android_sdk/tools:~/android_sdk/platform-tools:~/android-ndk
 export PYTHONPATH=$VF_HOME/third_party/gyp/pylib/gyp:$VF_HOME/pythonpath:$PYTHONPATH
 
 # AWS configuration.  See
@@ -25,8 +25,8 @@ export PYTHONPATH=$VF_HOME/third_party/gyp/pylib/gyp:$VF_HOME/pythonpath:$PYTHON
 export EC2_HOME=$VF_HOME/third_party/aws/ec2-api-tools
 export EC2_PRIVATE_KEY=~/.certs/pk-aws.pem
 export EC2_CERT=~/.certs/cert-aws.pem
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
+export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
 export PATH=$EC2_HOME/bin:$PATH
-
+export ANDROID_HOME=
 # Additional scripts.  Optional but convenient.
 export PATH=$VF_HOME/scripts:$PATH
