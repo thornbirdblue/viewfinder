@@ -164,10 +164,6 @@
             android:layout_height="wrap_content"
             class="org.jraf.android.backport.switchwidget.Switch"
             android:id="@+id/settings_debugLogs"
-            switch:track="@drawable/switch_track_holo_light"
-            switch:thumb="@drawable/switch_inner_holo_light"
-            switch:textOn="@string/switch_on"
-            switch:textOff="@string/switch_off"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_marginRight="8dp"/>

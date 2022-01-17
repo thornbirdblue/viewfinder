@@ -2,8 +2,6 @@
 <resources>
 
   <style name="Theme" parent="@android:style/Theme.NoTitleBar">
-    <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch</item>
-    <item name="switchPreferenceStyle">@style/Preference.SwitchPreference</item>
   </style>
 
   <style name="Theme.Fullscreen" parent="@style/Theme">
