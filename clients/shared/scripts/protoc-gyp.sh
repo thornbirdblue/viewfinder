@@ -19,4 +19,4 @@ proto_includes=${include_dirs[@]/#/-I}
 out_dir="$3"
 
 # echo ${PROTOC} --cpp_out="${out_dir}" ${proto_includes} "${proto_path}"  >> ${HOME}/protoc.out
-${PROTOC} --cpp_out="${out_dir}" ${proto_includes} "${proto_path}"
+${PROTOC} --java_out="${out_dir}" ${proto_includes} "${proto_path}"
