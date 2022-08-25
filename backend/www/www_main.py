@@ -30,7 +30,7 @@ from viewfinder.backend.storage.object_store import ObjectStore
 from viewfinder.backend.www.system_users import LoadSystemUsers
 
 
-options.define('local_services', default=False, type=bool,
+options.define('local_services', default=True, type=bool,
                help='If true, then do not use external services for email and texting. ' +
                     'Instead, log emails and texts to the console.')
 

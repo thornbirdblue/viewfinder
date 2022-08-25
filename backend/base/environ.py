@@ -68,6 +68,10 @@ class ServerEnvironment(object):
     or www.<domain> if running as production server.
     """
     assert _server_environment is not None
+#thrnbord 2022-08-25 Add Code for Devbox Mode Host Set.
+    if _server_environment._is_devbox:
+        logging.info("Devbox Mode: Set Host to localhost.")
+        return 'localhost'
     return _server_environment._staging_host if _server_environment._is_staging else _server_environment._prod_host
 
   @staticmethod
